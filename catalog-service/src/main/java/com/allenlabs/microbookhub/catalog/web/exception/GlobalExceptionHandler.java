@@ -1,9 +1,8 @@
 package com.allenlabs.microbookhub.catalog.web.exception;
 
+import com.allenlabs.microbookhub.catalog.domain.ProductNotFoundException;
 import java.net.URI;
 import java.time.Instant;
-
-import com.allenlabs.microbookhub.catalog.domain.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
