@@ -15,6 +15,7 @@
 	<description>Catalog Service</description>
 	<properties>
 		<java.version>21</java.version>
+		<dockerImageName>allenjoseph/micro-book-hub-${project.artifactId}</dockerImageName>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -104,6 +105,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>${dockerImageName}</name>
+					</image>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
