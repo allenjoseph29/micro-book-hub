@@ -1,4 +1,4 @@
-package com.allenlabs.microbookhub.orderservice;
+package com.allenlabs.microbookhub.orders;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.TestConfiguration;
