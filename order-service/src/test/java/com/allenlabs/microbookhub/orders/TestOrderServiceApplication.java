@@ -11,20 +11,21 @@ import org.testcontainers.utility.DockerImageName;
 @TestConfiguration(proxyBeanMethods = false)
 public class TestOrderServiceApplication {
 
-	@Bean
-	@ServiceConnection
-	PostgreSQLContainer<?> postgresContainer() {
-		return new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"));
-	}
+    @Bean
+    @ServiceConnection
+    PostgreSQLContainer<?> postgresContainer() {
+        return new PostgreSQLContainer<>(DockerImageName.parse("postgres:latest"));
+    }
 
-	@Bean
-	@ServiceConnection
-	RabbitMQContainer rabbitContainer() {
-		return new RabbitMQContainer(DockerImageName.parse("rabbitmq:latest"));
-	}
+    @Bean
+    @ServiceConnection
+    RabbitMQContainer rabbitContainer() {
+        return new RabbitMQContainer(DockerImageName.parse("rabbitmq:latest"));
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.from(OrderServiceApplication::main).with(TestOrderServiceApplication.class).run(args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.from(OrderServiceApplication::main)
+                .with(TestOrderServiceApplication.class)
+                .run(args);
+    }
 }
