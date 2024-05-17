@@ -1,10 +1,13 @@
 package com.allenlabs.microbookhub.orders.domain;
 
 import com.allenlabs.microbookhub.orders.domain.models.CreateOrderRequest;
+import com.allenlabs.microbookhub.orders.domain.models.OrderDTO;
+import com.allenlabs.microbookhub.orders.domain.models.OrderItem;
 import com.allenlabs.microbookhub.orders.domain.models.OrderStatus;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 class OrderMapper {
 
@@ -27,7 +30,7 @@ class OrderMapper {
         newOrder.setItems(orderItems);
         return newOrder;
     }
-    /*
+
     static OrderDTO convertToDTO(OrderEntity order) {
         Set<OrderItem> orderItems = order.getItems().stream()
                 .map(item -> new OrderItem(item.getCode(), item.getName(), item.getPrice(), item.getQuantity()))
@@ -42,5 +45,5 @@ class OrderMapper {
                 order.getStatus(),
                 order.getComments(),
                 order.getCreatedAt());
-    }*/
+    }
 }

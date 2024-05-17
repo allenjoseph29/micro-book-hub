@@ -1,4 +1,4 @@
-package com.allenlabs.microbookhub.orders.domain;
+package com.allenlabs.microbookhub.orders.domain.models;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
