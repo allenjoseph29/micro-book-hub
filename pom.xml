@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 	https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.sivalabs</groupId>
-    <artifactId>spring-boot-microservices-course</artifactId>
+    <groupId>com.allenlabs</groupId>
+    <artifactId>micro-book-hub</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>spring-boot-microservices-course</name>
+    <name>micro-book-hub</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,6 +20,9 @@
     <modules>
         <module>catalog-service</module>
         <module>order-service</module>
+        <module>notification-service</module>
+        <module>api-gateway</module>
+        <module>bookstore-webapp</module>
     </modules>
 
     <build>
