@@ -1,8 +1,13 @@
 package com.allenlabs.microbookhub.catalog.domain;
 
 class ProductMapper {
-    public static Product toProduct(ProductEntity entity) {
+
+    static Product toProduct(ProductEntity productEntity) {
         return new Product(
-                entity.getCode(), entity.getName(), entity.getDescription(), entity.getImageUrl(), entity.getPrice());
+                productEntity.getCode(),
+                productEntity.getName(),
+                productEntity.getDescription(),
+                productEntity.getImageUrl(),
+                productEntity.getPrice());
     }
 }

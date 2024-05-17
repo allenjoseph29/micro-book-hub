@@ -9,5 +9,5 @@ public record PagedResult<T>(
         int totalPages,
         boolean isFirst,
         boolean isLast,
-        boolean hasPrevious,
-        boolean hasNext) {}
+        boolean hasNext,
+        boolean hasPrevious) {}

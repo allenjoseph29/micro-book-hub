@@ -2,7 +2,7 @@ package com.allenlabs.microbookhub.catalog.domain;
 
 import com.allenlabs.microbookhub.catalog.ApplicationProperties;
 import java.util.Optional;
-import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -11,16 +11,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-@RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
-    private final ApplicationProperties applicationProperties;
+    private final ApplicationProperties properties;
+
+    ProductService(ProductRepository productRepository, ApplicationProperties properties) {
+        this.productRepository = productRepository;
+        this.properties = properties;
+    }
 
     public PagedResult<Product> getProducts(int pageNo) {
         Sort sort = Sort.by("name").ascending();
         pageNo = pageNo <= 1 ? 0 : pageNo - 1;
-        Pageable pageable = PageRequest.of(pageNo, applicationProperties.pageSize(), sort);
-        var productsPage = productRepository.findAll(pageable).map(ProductMapper::toProduct);
+        Pageable pageable = PageRequest.of(pageNo, properties.pageSize(), sort);
+        Page<Product> productsPage = productRepository.findAll(pageable).map(ProductMapper::toProduct);
 
         return new PagedResult<>(
                 productsPage.getContent(),
@@ -29,8 +33,8 @@ public class ProductService {
                 productsPage.getTotalPages(),
                 productsPage.isFirst(),
                 productsPage.isLast(),
-                productsPage.hasPrevious(),
-                productsPage.hasNext());
+                productsPage.hasNext(),
+                productsPage.hasPrevious());
     }
 
     public Optional<Product> getProductByCode(String code) {
