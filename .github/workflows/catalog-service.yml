@@ -6,6 +6,8 @@ on:
       - catalog-service/**
     branches:
       - '**'
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
@@ -16,6 +18,7 @@ jobs:
     defaults:
       run:
         working-directory: ${{ env.working-directory }}
+        DOCKER_IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/bookstore-catalog-service
     steps:
       - uses: actions/checkout@v4
 
