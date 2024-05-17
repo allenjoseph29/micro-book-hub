@@ -1,7 +1,6 @@
 # micro-book-hub
 MicroBookHub is a modern, microservices-based application for managing an online bookstore. Built with cutting-edge technologies and utilizing microservices architecture, MicroBookHub provides a scalable and robust platform for catalog management, order processing, notifications, and customer interaction.
 
-![BookStore Microservices Architecture](docs/bookstore-spring-microservices.png)
 
 ## Modules
 * **catalog-service**:
